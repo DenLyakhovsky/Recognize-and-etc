@@ -1,0 +1,11 @@
+Text,Essence
+Business Administration, ORG
+Any City, GPE
+VOLUNTEER, ORG
+EDUCATION, ORG
+BORCELLE UNIVERSITY
+Business Administration, ORG
+FAUGET, ORG
+Advanced, PERSON
+DONNA, PERSON
+Slide, ORG

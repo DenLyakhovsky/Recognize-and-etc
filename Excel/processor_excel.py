@@ -27,7 +27,7 @@ def read_all_xlsx_data(file_path):
 
 
 def delete_empty():
-    path = '../File_System/raw_data/excel_data/excel_data.xlsx'
+    path = '../File_System/raw_data/excel_data.xlsx'
     wb = load_workbook(path)
 
     for sheet_name in wb.sheetnames:

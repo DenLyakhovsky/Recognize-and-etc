@@ -14,7 +14,7 @@ def data_report():
     doc.add_heading('Привіт, це аналітика', level=4)
 
     # Вставлення короткої інформації про файл sample1.docx
-    docx_file = get_text('../File_System/raw_data/word_data/sample1.docx')
+    docx_file = get_text('../File_System/raw_data/sample1.docx')
     doc.add_paragraph(f'Коротко про цей файл. \n{docx_file[0]}. {docx_file[1]}')
 
     # Виведення таблиці

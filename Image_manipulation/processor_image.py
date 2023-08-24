@@ -1,3 +1,6 @@
+import os
+from pathlib import Path
+
 from PIL import Image, ImageOps, ImageFilter
 
 """
@@ -6,6 +9,9 @@ from PIL import Image, ImageOps, ImageFilter
 
 
 def photo_processing(load_photo):
+    if not Path(f'media').exists():
+        os.mkdir(f'media')
+
     image = Image.open(load_photo)
 
     grayscale(image)

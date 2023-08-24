@@ -8,7 +8,7 @@ import spacy
 # Завантаження моделі
 nlp = spacy.load("en_core_web_sm")
 
-path = "../File_System/raw_data/pdf_data/cv-resume.pdf"
+path = "../File_System/raw_data/cv-resume.pdf"
 
 
 def recognition(pdf_path):

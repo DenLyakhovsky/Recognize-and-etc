@@ -24,11 +24,11 @@ def read_xlsx():
 
 
 def create_plot():
-    # Дані для графіка
+    # Data for graph
     x = [1, 2, 3, 4, 5]
     y = [10, 15, 7, 12, 9]
 
-    # Створення графіка
+    # Creating a schedule
     plt.plot(x, y)
     plt.xlabel('X-позиція')
     plt.ylabel('Y-позиція')

@@ -2,10 +2,10 @@ from PyPDF2 import PdfReader
 import spacy
 
 """
-Функція, яка розпізнає іменованих обʼєктів і зберігає їх
+A function that recognizes named objects and stores them
 """
 
-# Завантаження моделі
+# Upload model
 nlp = spacy.load("en_core_web_sm")
 
 path = "../File_System/raw_data/cv-resume.pdf"
@@ -18,10 +18,10 @@ def recognition(pdf_path):
         for page in reader.pages:
             text += page.extract_text()
 
-    # Обробка тексту з використанням spaCy
+    # Text processing using spaCy
     doc = nlp(text)
 
-    # Виведення сутностей
+    # Derivation of entities
     with open('../processed_data/ner_results.txt', 'w') as f:
         text = 'Text,Essence\n'
         f.write(text)
@@ -34,4 +34,4 @@ def recognition(pdf_path):
 
 
 recognition(path)
-# Файл збережено в processed_data
+# File saved in processed_data

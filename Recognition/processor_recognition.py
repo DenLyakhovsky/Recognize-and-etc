@@ -5,25 +5,25 @@ from imageai.Detection import ObjectDetection
 from File_System.sort_files import iteration
 
 """
-Функція, яка розпізнає обʼєкт, який ми задали в 'object'
+A function that recognizes the object we specified in 'object'
 """
 
 
 def object_recognition(object, path_to_photos, path_to_model):
     """
-    :param object: Обʼєкт, який хоче знайти. Наприклад, dog, cat
-    :param path_to_photos: Шлях до директорія з фотографіями
-    :param path_to_model: Шлях до натренованої моделі
+    :param object: The object to find. For example, dog, cat
+    :param path_to_photos: Path to the directory with photos
+    :param path_to_model: The path to the trained model
     """
 
-    # Дістаємо фото з директорія
+    # We get the photo from the directory
     photos = Path(path_to_photos)
-    # Перебираємо фото, які закінчуються на формати
+    # We go through photos that end in formats
     f_jpeg = iteration(photos.glob("*.jpeg"))
     f_jpg = iteration(photos.glob("*.jpg"))
     f_png = iteration(photos.glob("*.png"))
 
-    # Отримуємо шлях до папки, де запускається наш файл python.
+    # We get the path to the folder where our python file runs
     execution_path = os.getcwd()
 
     # Створюємо новий екземпляр класу, встановлюємо та завантажуємо модель
@@ -32,16 +32,16 @@ def object_recognition(object, path_to_photos, path_to_model):
     detector.setModelPath(os.path.join(execution_path, path_to_model))
     detector.loadModel()
 
-    # Якщо немає такої директорія, створюємо
+    # If there is no such directory, create it
     if not Path(f'../Recognition/{object}_photos_dir').exists():
         os.mkdir(f'../Recognition/{object}_photos_dir/')
 
     for list_image in (f_jpeg, f_jpg, f_png):
         for image in list_image:
-            # Функція 'detectObjectsFromImage' аналізує шлях до фото
+            # The 'detectObjectsFromImage' function analyzes the path to the photo
             detections = detector.detectObjectsFromImage(input_image=os.path.join(execution_path, image))
 
-            # Перебираємо detections, і якщо в obj["name"] є обʼєкт, який ми шукаємо - то зберігаємо в директорія
+            # We go through the detections, and if obj["name"] contains the object we are looking for, we save it to the directory
             for obj in detections:
                 if object in obj["name"]:
                     source_path = os.path.join(execution_path, image)

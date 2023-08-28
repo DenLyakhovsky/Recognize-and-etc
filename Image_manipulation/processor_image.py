@@ -4,7 +4,7 @@ from pathlib import Path
 from PIL import Image, ImageOps, ImageFilter
 
 """
-Завантажує фото та обробляє їх
+Uploads photos and processes them
 """
 
 

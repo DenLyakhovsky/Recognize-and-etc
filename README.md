@@ -1,9 +1,9 @@
 # TensorFlow-and-etc
     
-Перед запуском встановити:
+Before starting, install:
 python -m spacy download en_core_web_sm
 
-У цьому проєкті використовуються такі технології як:<br>
+This project uses such technologies as:<br>
 - pathlib, shutil
 - openpylx
 - python-docx

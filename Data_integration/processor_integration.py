@@ -1,7 +1,7 @@
 import pandas as pd
 
 """
-Скрипт, який зчитує оброблені дана Excel і обʼєднує
+A script that reads processed Excel data and combines
 """
 
 xlsx = pd.read_excel('../processed_data/processed_data.xlsx', sheet_name=1)

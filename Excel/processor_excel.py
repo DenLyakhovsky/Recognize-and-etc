@@ -4,7 +4,7 @@ from pathlib import Path
 from File_System.sort_files import iteration
 
 """
-Скрипт, який зчитує всі Excel файли та обробляє їх
+A script that reads all Excel files and processes them
 """
 
 files_excel = Path('../File_System/raw_data/excel_data')
@@ -33,24 +33,24 @@ def delete_empty():
     for sheet_name in wb.sheetnames:
         sheet = wb[sheet_name]
 
-        # Створюємо список для збереження номерів рядків, які потрібно видалити
+        # We create a list to store the numbers of lines that need to be deleted
         rows_to_delete = []
 
         for row_index, row in enumerate(sheet.iter_rows(values_only=True), start=1):
-            # Перевіряємо, чи є хоча б одна комірка зі значенням None
+            # We check if there is at least one cell with the value None
             if any(cell_value is None for cell_value in row):
                 rows_to_delete.append(row_index)
 
-        # Видаляємо рядки, які є пустими
+        # Remove lines that are empty
         for row_index in reversed(rows_to_delete):
             sheet.delete_rows(row_index)
 
-    # Зберігаємо зміни у файл
+    # Save the changes to the file
     save_as_a_new_file(wb, 'processed_data')
 
 
 def save_as_a_new_file(wb, name_file):
-    # Видаляємо аркуш "Sheet"
+    # Delete the sheet "Sheet"
     if 'Sheet' in wb.sheetnames:
         wb.remove(wb['Sheet'])
 

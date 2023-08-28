@@ -50,7 +50,7 @@ def data_report():
     doc.add_picture('media/plot.png', width=Inches(5.0))
 
     # Save
-    doc.save('data_analysis_repost.docx')
+    doc.save('data_analysis_report.docx')
 
 
 data_report()
